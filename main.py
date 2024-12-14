@@ -88,7 +88,8 @@ class Simulation:
             self.mental_activity_levels[i] = self.mental_activity.update_activity(self.energy[i - 1])
 
             current_recovery_rate = self.calculate_recovery_rate(t)
-            self.energy[i] = self.person.update_energy(self.physical_activity_levels[i], current_recovery_rate * self.dt)
+            self.energy[i] = self.person.update_energy(self.physical_activity_levels[i],
+                                                       current_recovery_rate * self.dt)
             self.lactate[i] = self.person.update_lactate(self.physical_activity_levels[i], self.dt)
             self.cognitive_fatigue[i] = self.person.update_cognitive_fatigue(self.mental_activity_levels[i], self.dt)
             self.total_fatigue[i] = self.lactate[i] + self.cognitive_fatigue[i]
